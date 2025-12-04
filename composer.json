@@ -1,0 +1,36 @@
+{
+    "name": "nacosvel/support",
+    "description": "The Nacosvel Components",
+    "keywords": [
+        "nacosvel",
+        "support"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://github.com/nacosvel/support",
+    "authors": [
+        {
+            "name": "jundayw",
+            "email": "jundayw@126.com"
+        }
+    ],
+    "require": {
+        "php": "^8.0"
+    },
+    "require-dev": {},
+    "autoload": {
+        "psr-4": {
+            "Nacosvel\\Support\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.x-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
