@@ -15,13 +15,16 @@
         }
     ],
     "require": {
-        "php": "^8.0"
+        "php": "^8.0",
+        "nacosvel/macroable": "^1.0"
     },
-    "require-dev": {},
     "autoload": {
         "psr-4": {
             "Nacosvel\\Support\\": "src/"
-        }
+        },
+        "files": [
+            "./src/helper.php"
+        ]
     },
     "extra": {
         "branch-alias": {
