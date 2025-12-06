@@ -87,12 +87,16 @@ class HigherOrderProxy implements ArrayAccess
      */
     public function __isset($name): bool
     {
-        if (is_array($this->target) || $this->target instanceof ArrayObject) {
+        if (is_array($this->target)) {
             return isset($this->target[$name]);
         }
 
         if (is_object($this->target)) {
             return isset($this->target->{$name});
+        }
+
+        if (is_array($this->target) || $this->target instanceof ArrayObject) {
+            return isset($this->target[$name]);
         }
 
         return false;
@@ -132,7 +136,7 @@ class HigherOrderProxy implements ArrayAccess
     public function offsetGet(mixed $offset): mixed
     {
         if (!$this->accessible()) {
-            return null;
+            return value(null);
         }
 
         if (is_null($offset)) {
@@ -143,7 +147,7 @@ class HigherOrderProxy implements ArrayAccess
             return $this->target[$offset];
         }
 
-        return $this->target;
+        return null;
     }
 
     /**

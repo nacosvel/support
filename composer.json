@@ -18,6 +18,9 @@
         "php": "^8.0",
         "nacosvel/macroable": "^1.0"
     },
+    "require-dev": {
+        "phpunit/phpunit": "^11.5"
+    },
     "autoload": {
         "psr-4": {
             "Nacosvel\\Support\\": "src/"
@@ -25,6 +28,11 @@
         "files": [
             "./src/helper.php"
         ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
     },
     "extra": {
         "branch-alias": {
