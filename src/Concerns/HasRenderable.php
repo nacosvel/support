@@ -12,17 +12,16 @@ trait HasRenderable
 {
     /**
      * @inheritdoc
-     * @return string
      */
-    public function render(): string
+    public function render()
     {
         return match (true) {
             $this instanceof HtmlRepresentable => $this->toHtml(),
             $this instanceof JsonRepresentable => $this->toJson(),
             $this instanceof StringRepresentable => $this->toString(),
             $this instanceof ArrayRepresentable => json_encode($this->toArray()),
-            $this instanceof ResponseRepresentable => $this->toResponse()->getContent() ?: '',
-            default => '',
+            $this instanceof ResponseRepresentable => $this->toResponse()?->getBody()->getContent() ?? $this->toResponse()?->getContent(),
+            default => null,
         };
     }
 }

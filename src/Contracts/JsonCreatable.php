@@ -28,9 +28,7 @@ interface JsonCreatable
      *                               {@see JSON_THROW_ON_ERROR} when passed this flag, the error behaviour of these functions is changed. The global error state is left untouched, and if an error occurs that would otherwise set it, these functions instead throw a JsonException<br/>
      *                               </p>
      *
-     * @return static A new instance of the implementing class.
-     *
      * @throws InvalidArgumentException If the JSON string is invalid.
      */
-    public static function fromJson(string $json, bool $associative = null, int $depth = 512, int $flags = 0): static;
+    public static function fromJson(string $json, bool $associative = null, int $depth = 512, int $flags = 0);
 }

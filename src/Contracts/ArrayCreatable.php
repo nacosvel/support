@@ -11,8 +11,6 @@ interface ArrayCreatable
      * Create a new instance of the class from an array.
      *
      * @param array $data The input data for creating the instance.
-     *
-     * @return static A new instance of the class.
      */
-    public static function fromArray(array $data): static;
+    public static function fromArray(array $data);
 }

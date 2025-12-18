@@ -2,6 +2,8 @@
 
 namespace Nacosvel\Support\Contracts;
 
+use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -16,9 +18,9 @@ interface ResponseRepresentable
     /**
      * Convert the object into an HTTP response.
      *
-     * @param Request|null $request The current HTTP request context.
+     * @param Request|RequestInterface|null $request The current HTTP request context.
      *
-     * @return Response The corresponding HTTP response object.
+     * @return Response|ResponseInterface The corresponding HTTP response object.
      */
-    public function toResponse(?Request $request = null): Response;
+    public function toResponse(RequestInterface|Request $request = null): ResponseInterface|Response;
 }
