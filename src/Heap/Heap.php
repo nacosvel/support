@@ -2,12 +2,14 @@
 
 namespace Nacosvel\Support\Heap;
 
-use Nacosvel\Support\Contracts\Arrayable;
-use Nacosvel\Support\Contracts\ArrayInstantiable;
+use Nacosvel\Support\Concerns\HasArrayCreatable;
+use Nacosvel\Support\Contracts\ArrayConvertible;
 use SplHeap;
 
-abstract class Heap extends SplHeap implements Arrayable, ArrayInstantiable
+abstract class Heap extends SplHeap implements ArrayConvertible
 {
+    use HasArrayCreatable;
+
     public function __construct(private array $items = [])
     {
         foreach ($this->items as $value) {
@@ -34,18 +36,5 @@ abstract class Heap extends SplHeap implements Arrayable, ArrayInstantiable
         $this->rewind();
 
         return $data;
-    }
-
-    /**
-     * Create a new instance from the given items array.
-     *
-     * @param array $data
-     *
-     * @return static
-     */
-    #[TentativeType]
-    public static function fromArray(array $data): static
-    {
-        return new static($data);
     }
 }
