@@ -2,13 +2,15 @@
 
 namespace Nacosvel\Support\Contracts;
 
+/**
+ * Represents an object that can be rendered as a string.
+ */
 interface Renderable
 {
     /**
-     * Get the evaluated contents of the object.
+     * Render the object as a string.
      *
-     * @return string
+     * @return string The rendered string output of the object.
      */
-    #[TentativeType]
     public function render(): string;
 }
