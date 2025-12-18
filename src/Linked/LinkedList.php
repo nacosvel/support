@@ -2,9 +2,11 @@
 
 namespace Nacosvel\Support\Linked;
 
+use Nacosvel\Support\Contracts\Arrayable;
+use Nacosvel\Support\Contracts\ArrayInstantiable;
 use SplDoublyLinkedList;
 
-class LinkedList extends SplDoublyLinkedList
+class LinkedList extends SplDoublyLinkedList implements Arrayable, ArrayInstantiable
 {
     public function __construct(private array $items = [])
     {
@@ -41,13 +43,13 @@ class LinkedList extends SplDoublyLinkedList
     /**
      * Create a new instance from the given items array.
      *
-     * @param array $items
+     * @param array $data
      *
      * @return static
      */
     #[TentativeType]
-    public static function fromArray(array $items): static
+    public static function fromArray(array $data): static
     {
-        return new static($items);
+        return new static($data);
     }
 }
